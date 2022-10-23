@@ -1,25 +1,14 @@
 <template>
   <div class="favorite-movie-section">
-    <h3>Favorite Movies</h3>
-    <div v-for="store in movies" :key="store.id">
-      {{ store.title }}
-    </div>
-  </div>
-  <!-- When creating divs that contain images -->
-  <!-- <div>
-    <div
-      v-for="movie in movies"
-      :key="store.id"
-      class=""
-      :style="`background: url(${movie.img}) no-repeat center center`"
-      >
-      <div class="movie-description">
-        <div>
-          <p>{{ movie.description}}</p>
-        </div>
+    <h2>Favorite Movies</h2>
+    <div v-for="item in movies" :key="item.id" class="movie-container">
+      <div v-for="movie in item.items" :key="movie.id" class="poster">
+        <h3 class="movie-title">{{ movie.title }}</h3>
+        <img :src="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
+        <p class="movie-overview">{{ movie.overview }}</p>
       </div>
     </div>
-  </div> -->
+  </div>
 </template>
 
 <script>
@@ -39,7 +28,5 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  color: red;
-}
+
 </style>
