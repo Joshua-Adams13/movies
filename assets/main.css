@@ -91,23 +91,16 @@ a:hover {
         grid-template-columns: repeat(10, 1fr);
         gap: 1rem;
     }
-    #projects img{
-        grid-column: 1/6;
-        grid-row: 1/2;
-    }
     .text {
         grid-column: 5/11;
         grid-row: 1/2;
         order: 2;
         text-align: right;
     }
-    #projects ul {
-        justify-content: flex-end;
-    }
 }
 
 /* navbar */
-nav{
+nav {
     background-color: var(--thirdColor);
     font-size: 80%;
     padding: 1rem;
@@ -121,9 +114,7 @@ nav ul {
     margin: 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    gap: .5rem;
 }
 nav a {
     color: var(--fourthColor);
@@ -133,20 +124,14 @@ nav a {
 nav a:hover {
     color: var(--highlight);
 }
-nav li:first-child {
-    flex-basis: 100%; /* pushes this list item on it's own line */
-    text-align: center;
+nav li {
+    text-align: left;
 }
 
 @media (min-width: 850px) {
-    nav {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    nav li:first-child {
-        flex-basis: auto;
+    nav li  {
         text-align: left;
-        margin-right: auto;
+        margin-right: 25px;
     }
 }
 /* Footer Styles */
@@ -154,5 +139,5 @@ footer {
     margin-top: 2em;
     background-color: var(--thirdColor);
     text-align: left;
-    padding: 2rem 0;
+    padding: 2rem;
 }

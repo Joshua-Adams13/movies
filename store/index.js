@@ -25,7 +25,6 @@ export const actions = {
       await fetch('https://api.themoviedb.org/3/list/8223749?api_key=679a4604f631a1ad0f61b7da242328bf&language=en-US')
         .then(response => response.json())
         .then((data) => {
-          console.log(data)
           commit('updateMovies', data) // Calls the updateMovie mutation
         })
     } catch (err) {
