@@ -1,17 +1,17 @@
 <template>
   <main class="container">
     <h1>MOVIES</h1>
-    <FavoriteMovies />
+    <MoviesCarousel />
   </main>
 </template>
 
 <script>
-import FavoriteMovies from '@/components/FavoriteMovies.vue'
+import MoviesCarousel from '@/components/MoviesCarousel.vue'
 
 export default {
   name: 'IndexPage',
   components: {
-    FavoriteMovies
+    MoviesCarousel
   }
 }
 
