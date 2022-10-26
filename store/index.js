@@ -1,5 +1,8 @@
 export const state = () => ({
-  movies: []
+  movies: '',
+  comedyMovies: '',
+  actionMovies: '',
+  dramaMovies: ''
 })
 
 export const getters = {
@@ -10,7 +13,16 @@ export const getters = {
 // Always synchronous
 export const mutations = {
   updateMovies: (state, data) => {
-    state.movies = [data]
+    state.movies = data
+  },
+  updateComedyMovies: (state, comedyMovies) => {
+    state.comedyMovies = comedyMovies
+  },
+  updateActionMovies: (state, actionMovies) => {
+    state.actionMovies = actionMovies
+  },
+  updateDramaMovies: (state, dramaMovies) => {
+    state.dramaMovies = dramaMovies
   }
 }
 
@@ -25,10 +37,37 @@ export const actions = {
       await fetch('https://api.themoviedb.org/3/list/8223749?api_key=679a4604f631a1ad0f61b7da242328bf&language=en-US')
         .then(response => response.json())
         .then((data) => {
-          commit('updateMovies', data) // Calls the updateMovie mutation
+          commit('updateMovies', data.items) // Calls the updateMovie mutation
         })
     } catch (err) {
       console.log(err)
+    }
+  },
+  selectComedyMovies ({
+    state,
+    commit
+  }) {
+    if (state.movies.length) {
+      const comedyMovies = state.movies.filter(el => el.genre_ids.includes(35))
+      commit('updateComedyMovies', comedyMovies)
+    }
+  },
+  selectActionMovies ({
+    state,
+    commit
+  }) {
+    if (state.movies.length) {
+      const actionMovies = state.movies.filter(el => el.genre_ids.includes(28))
+      commit('updateActionMovies', actionMovies)
+    }
+  },
+  selectDramaMovies ({
+    state,
+    commit
+  }) {
+    if (state.movies.length) {
+      const dramaMovies = state.movies.filter(el => el.genre_ids.includes(18))
+      commit('updateDramaMovies', dramaMovies)
     }
   }
 }

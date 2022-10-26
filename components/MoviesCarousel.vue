@@ -1,10 +1,8 @@
 <template>
   <div>
+    <!-- Movies Slides -->
     <b-carousel
-      v-for="item in movies"
-      :key="item.id"
       class="movie-container"
-      id="carousel-1"
       v-model="slide"
       :interval="0"
       controls
@@ -14,16 +12,16 @@
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
-   <!-- Movies Carousel -->
+     <!-- Movies Slides -->
         <b-carousel-slide
-          v-for="movie in item.items"
+          v-for="movie in datasource"
           :key="movie.id"
           img-blank
           img-alt="Blank image"
         >
           <div class="poster">
-            <img :src="'https://image.tmdb.org/t/p/w185' + movie.poster_path">
-            <section>
+            <img :src="'https://image.tmdb.org/t/p/w185' + movie.poster_path" class="poster-img">
+            <section class="movie-info">
             <h3 class="movie-title">{{ movie.title }}</h3>
             <p class="movie-overview">{{ movie.overview }}</p>
             </section>
@@ -34,8 +32,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
   data () {
     return {
@@ -43,8 +39,10 @@ export default {
       sliding: null
     }
   },
-  computed: {
-    ...mapState(['movies'])
+  props: {
+    datasource: {
+      type: [Array, Object]
+    }
   },
   methods: {
     onSlideStart (slide) {

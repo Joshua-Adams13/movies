@@ -1,6 +1,6 @@
 :root {
-    --firstColor: #231b1b;
-    --secondColor: #9C1717;
+    --firstColor: #161616;
+    --secondColor: #c80c0c;
     --thirdColor: #000000;
     --fourthColor: #e0ac00;
     --fifthColor: #E8EBFF;
@@ -52,7 +52,8 @@ p{
     font-size: 1em;
 }
 .img-fluid {
-    height: 400px;
+    height: 420px;
+    display: block;
 }
 
 a {
@@ -62,40 +63,37 @@ a:hover {
     color: var(--highlight);
     text-decoration: none;
 }
-.poster img {
-    margin-right: 1em;
-}
 .movie-container{
     border-radius: 20px;
     width: 100%; 
     padding: .5em;
+    margin: 20px 0 50px 0;
 }
 .poster {
-    padding: 1em;
     background-color: var(--thirdColor);
     min-height: 350px;
+    display: inline-flex;
+    justify-content: center;
+}
+.poster img {
+    margin-right: 1em;
     display: flex;
+}
+.movie-info {
+    width: 60%;
+    position: relative;
 }
 .movie-title {
     padding: 5px;
-    font-size: 1em;
+    font-size: 1.25em;
 }
 .movie-overview{
-    font-size: .75em;
+    font-size: .8em;
 }
 
-
-@media (min-width: 850px) {
-    article {
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        gap: 1rem;
-    }
-    .text {
-        grid-column: 5/11;
-        grid-row: 1/2;
-        order: 2;
-        text-align: right;
+@media only screen and (max-width: 850px) {
+    .img-fluid {
+        height: 450px;
     }
 }
 
@@ -128,12 +126,6 @@ nav li {
     text-align: left;
 }
 
-@media (min-width: 850px) {
-    nav li  {
-        text-align: left;
-        margin-right: 25px;
-    }
-}
 /* Footer Styles */
 footer {
     margin-top: 2em;
