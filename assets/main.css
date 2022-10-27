@@ -93,7 +93,23 @@ a:hover {
 
 @media only screen and (max-width: 850px) {
     .img-fluid {
-        height: 450px;
+        height: 500px;
+    }
+    .poster img {
+        max-height: 300px;
+        margin-right: 1em;
+        display: flex;
+    }
+    .movie-info {
+        width: 60%;
+        position: relative;
+    }
+    .movie-title {
+        padding: 5px;
+        font-size: .75em;
+    }
+    .movie-overview{
+        font-size: .45em;
     }
 }
 
